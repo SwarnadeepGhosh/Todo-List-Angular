@@ -1,0 +1,17 @@
+<div class="my-3">
+    <h4>Add New Todo</h4>
+    <!-- Handling ngSubmit Event with onSubmit() method which will add a new todo to todos. -->
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Todo Title</label>
+            <!-- Bind ngModel directive to store input title -->
+            <input type="text" [(ngModel)]="title" class="form-control" name="title" id="title">
+        </div>
+        <div class="form-group">
+            <label for="desc">Todo Description</label>
+            <!-- Bind ngModel directive to store input Description -->
+            <input type="text" [(ngModel)]="desc" class="form-control" name="desc" id="desc">
+        </div>
+        <button type="submit" class="btn btn-success">Add Todo</button>
+    </form>
+</div>

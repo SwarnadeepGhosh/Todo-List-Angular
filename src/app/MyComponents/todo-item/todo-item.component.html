@@ -1,0 +1,12 @@
+<!--To receive todo from todos.component, We have to add Input Decorator in todo-item.component.ts-->
+<div class="my-3">
+    <!--Creating a ngClass custom attribute, which will set the element class to strike it it not active.-->
+    <h5 [ngClass]="{'strike': !todo.active}">{{todo.title}}</h5>
+    <p class="mb-1" [ngClass]="{'strike': !todo.active}">{{todo.desc}}</p>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" (click)="onCheckboxClick(todo)" [checked]="!todo.active" id="done{{i}}">
+        <label class="form-check-label" for="done{{i}}"><i>Mark as Done</i></label>
+      </div>
+    <!-- Creating a (click) event with name onClick()-->
+    <button class="btn btn-sm btn-danger mb-4" (click)="onClick(todo)">Delete</button>
+</div>

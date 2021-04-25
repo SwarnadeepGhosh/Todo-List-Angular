@@ -1,0 +1,14 @@
+<div class="container my-3">
+    <h1 class="text-center mb-3">Todo List by Swarnadeep</h1>
+    <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+    <h4>Your Todos</h4>
+    <div *ngIf="this.todos.length===0; else elseBlock">No Todos to Display</div>
+    <ng-template #elseBlock>
+        <!-- Looping over list of todos by ngFor directive -->
+        <div *ngFor="let todo of todos; index as i">
+            <!-- Creating a Custom Attribute [todo] and passing "todo" in app-todo-item -->
+            <!-- Listen the event todoDelete and run deleteTodo function ,passing the event(todo) within it -->
+            <app-todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)"></app-todo-item>
+        </div>
+    </ng-template>
+</div>
