@@ -4,6 +4,18 @@
 
 ### Table of Contents
 - [Environment Setup](#environment-setup )
+- [Components](#components)
+  - [app Component](#app-component)
+  - [todos Component](#todo-component)
+  - [todo-item Component](#todo-item-component)
+- [Functionality](#functionality)
+  - [Delete a todo](#delete-a-todo)
+  - [Add a todo (add-todo Component)](#add-a-todo)
+  - [Empty todo text](#empty-todo-text)
+  - [Saving in LocalStorage](#saving-in-localstorage)
+  - [Mark as Done](#mark-as-done)
+  - [Routing Module](#routing-module)
+- [Build for PROD](#build-for-prod)
 
 #### Prerequisite Installation
 
@@ -19,7 +31,7 @@
 >npm install jquery
 ```
 Configure `angular.json`
-```json
+```javascript
 "architect": {
         "build": {
             "styles": [
@@ -33,7 +45,7 @@ Configure `angular.json`
           },
 ```
 
-
+----
 
 Welcome Page
 
