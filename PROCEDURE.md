@@ -2,7 +2,8 @@
 
 ### [Live Link](https://swarnadeepghosh.github.io/todo/)
 
-[TOC]
+### Table of Contents
+- [Environment Setup](#environment-setup )
 
 #### Prerequisite Installation
 
@@ -36,7 +37,7 @@ Configure `angular.json`
 
 Welcome Page
 
-![Welcome-Page](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\Welcome-Page.png)
+![Welcome-Page](images/Welcome-Page.png)
 
 ### Components
 
@@ -184,7 +185,7 @@ export class TodoItemComponent implements OnInit {
 
 
 
-![homepage1](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\homepage1.png)
+![homepage1](images/homepage1.png)
 
 ### Functionality
 
@@ -245,11 +246,11 @@ export class TodosComponent implements OnInit {
 
 - Initial Stage before deletion
 
-![Delete-Initial](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\Delete-Initial.png)
+![Delete-Initial](images/Delete-Initial.png)
 
 - After delete 2nd todo
 
-![After-delete 2](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\After-delete-2nd.png)
+![After-delete 2](images/After-delete-2nd.png)
 
 #### Add a todo
 
@@ -351,13 +352,13 @@ addTodo(todo: Todo){
 
 Before Add
 
-![Before Add](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\Before-Add.png)
+![Before Add](images/Before-Add.png)
 
 
 
 After Add
 
-![After Add](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\After-Add.png)
+![After Add](images/After-Add.png)
 
 
 
@@ -378,7 +379,7 @@ If there is **no todo present** in the array, we can display **No Todos to Displ
 </ng-template>
 ```
 
-![empty-todo](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\empty-todo.png)
+![empty-todo](images/empty-todo.png)
 
 
 
@@ -527,7 +528,7 @@ export class TodosComponent implements OnInit {
 
 After toggle checkbox completed :
 
-![Mark-as-done](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\Mark-as-done.png)
+![Mark-as-done](images/Mark-as-done.png)
 
 
 
@@ -568,11 +569,11 @@ We have to use **routerLink** in place of **href**.
 
 
 
-![Final-home-page](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\Final-home-page.png)
+![Final-home-page](images/Final-home-page.png)
 
 
 
-![Final-about](D:\Tata Consultancy Services\TCS Courses\FrontEnd(MEAN) FP\Angular\TodoList\images\Final-about.png)
+![Final-about](images/Final-about.png)
 
 
 
