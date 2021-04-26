@@ -17,8 +17,9 @@ export class AddTodoComponent implements OnInit {
   
   onSubmit() {
     const todo = {
-      sno: 8,
-      //sno: Math.floor((Math.random() * 10) + 1)
+      //sno: 8,
+      //Generates random number between 1 to 10
+      sno: Math.floor((Math.random() * 10) + 1),
       title: this.title,
       desc: this.desc,
       active: true
