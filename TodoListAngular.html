@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="generator" content="pandoc">
+    <meta name="description" content="">
+
+    <title>TodoListAngular</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://mushiyo.github.io/pandoc-toc-sidebar/css/dashboard.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">.sidebar ul{padding-left: 10px;} .sidebar{background-color: #dadada;}</style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div id="sidebar" class="col-sm-3 col-md-2 sidebar">
+          <!--<ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+          </ul>-->
+          <ul>
+          <li><a href="#todo-list-workflow-step-by-step"
+          id="toc-todo-list-workflow-step-by-step">Todo List Workflow
+          Step by Step</a>
+          <ul>
+          <li><a href="#live-link" id="toc-live-link"><span>Live
+          Link</span></a></li>
+          <li><a href="#table-of-contents"
+          id="toc-table-of-contents">Table of Contents</a></li>
+          <li><a href="#environment-setup"
+          id="toc-environment-setup">Environment Setup</a></li>
+          <li><a href="#components" id="toc-components">Components</a>
+          <ul>
+          <li><a href="#app-component" id="toc-app-component">app
+          Component</a></li>
+          <li><a href="#todo-component" id="toc-todo-component">todo
+          Component</a></li>
+          <li><a href="#todo-item-component"
+          id="toc-todo-item-component">todo-item Component</a></li>
+          </ul></li>
+          <li><a href="#functionality"
+          id="toc-functionality">Functionality</a>
+          <ul>
+          <li><a href="#delete-a-todo" id="toc-delete-a-todo">Delete a
+          todo</a></li>
+          <li><a href="#add-a-todo" id="toc-add-a-todo">Add a
+          todo</a></li>
+          <li><a href="#add-todo-component"
+          id="toc-add-todo-component">add-todo Component</a></li>
+          <li><a href="#empty-todo-text" id="toc-empty-todo-text">Empty
+          todo text</a></li>
+          <li><a href="#saving-in-localstorage"
+          id="toc-saving-in-localstorage">Saving in
+          Localstorage</a></li>
+          <li><a href="#mark-as-done" id="toc-mark-as-done">Mark as
+          Done</a></li>
+          </ul></li>
+          <li><a href="#routing-module" id="toc-routing-module">Routing
+          Module</a></li>
+          <li><a href="#build-for-prod" id="toc-build-for-prod">Build
+          for PROD</a></li>
+          </ul></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+<h1 id="todo-list-workflow-step-by-step">Todo List Workflow Step by
+Step</h1>
+<h3 id="live-link"><a
+href="https://swarnadeepghosh.github.io/todo/">Live Link</a></h3>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#environment-setup">Environment Setup</a></li>
+<li><a href="#components">Components</a>
+<ul>
+<li><a href="#app-component">app Component</a></li>
+<li><a href="#todo-component">todos Component</a></li>
+<li><a href="#todo-item-component">todo-item Component</a></li>
+</ul></li>
+<li><a href="#functionality">Functionality</a>
+<ul>
+<li><a href="#delete-a-todo">Delete a todo</a></li>
+<li><a href="#add-a-todo">Add a todo (add-todo Component)</a></li>
+<li><a href="#empty-todo-text">Empty todo text</a></li>
+<li><a href="#saving-in-localstorage">Saving in LocalStorage</a></li>
+<li><a href="#mark-as-done">Mark as Done</a></li>
+<li><a href="#routing-module">Routing Module</a></li>
+</ul></li>
+<li><a href="#build-for-prod">Build for PROD</a></li>
+</ul>
+<p><strong>Prerequisite Installation</strong></p>
+<ul>
+<li>Node</li>
+<li>Angular CLI</li>
+<li>VS Code</li>
+</ul>
+<h2 id="environment-setup">Environment Setup</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>ng new TodoList</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span><span class="fu">cd</span> Todolist</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>npm install bootstrap</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>npm install jquery</span></code></pre></div>
+<p>Configure <code>angular.json</code></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;architect&quot;</span><span class="op">:</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;build&quot;</span><span class="op">:</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;styles&quot;</span><span class="op">:</span> [</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;src/styles.css&quot;</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;./node_modules/bootstrap/dist/css/bootstrap.min.css&quot;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            ]<span class="op">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;scripts&quot;</span><span class="op">:</span> [</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;./node_modulFes/jquery/dist/jquery.min.js&quot;</span><span class="op">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;./node_modules/bootstrap/dist/js/bootstrap.js&quot;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span></code></pre></div>
+<hr />
+<p>Welcome Page</p>
+<p><img src="images/Welcome-Page.png" alt="Welcome-Page" style="zoom:67%;" /></p>
+<h2 id="components">Components</h2>
+<p>Used 3 components :</p>
+<ul>
+<li><p><strong>app</strong> component – for the homepage header and
+footer</p></li>
+<li><p><strong>todos</strong> component – for the whole Todo List
+content</p></li>
+<li><p><strong>todo-item</strong> component – for individual todo item
+which will be populated below the todo list</p></li>
+<li><p><strong>add-todo</strong> Component – to add new todo</p></li>
+</ul>
+<h3 id="app-component">app Component</h3>
+<p><strong><em>app.component.html</em></strong></p>
+<p>Paste bootstrap navbar and generate a component
+<strong>todos</strong> .</p>
+<p>Map todos component in app component by adding this :
+<code>&lt;app-todos&gt;&lt;/app-todos&gt;</code></p>
+<p><strong><em>app.component.ts</em></strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppComponent {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  title <span class="op">=</span> <span class="st">&#39;TodoList&#39;</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Timeout function will change the title without PAGE RELOAD</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">title</span> <span class="op">=</span> <span class="st">&quot;Changed Title&quot;</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span> <span class="dv">2000</span>)<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong><em>Todo.ts - Created a Todo Model</em></strong></p>
+<p>Todo.ts is a Angular Model Class This is a model to generate lot of
+Todo in todo list.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> Todo{</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    sno<span class="op">:</span><span class="dt">number</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">:</span><span class="dt">string</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    desc<span class="op">:</span><span class="dt">string</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    active<span class="op">:</span><span class="dt">boolean</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="todo-component">todo Component</h3>
+<p><strong><em>todos.component.html</em></strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">*ngFor</span><span class="ot">=</span><span class="st">&quot;let todo of todos&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Creating a Custom Attribute [todo] and passing &quot;todo&quot; in app-todo-item --&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;app-todo-item</span> <span class="er">[todo]</span><span class="ot">=</span><span class="st">&quot;todo&quot;</span><span class="kw">&gt;&lt;/app-todo-item&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+<p><strong><em>todos.component.ts</em></strong></p>
+<p>Created a todos Array which is of type <strong>Todo Model
+Class</strong> and put some values in it.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodosComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  todos<span class="op">:</span> Todo[]<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todos</span> <span class="op">=</span> [</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        sno<span class="op">:</span><span class="dv">1</span><span class="op">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        title<span class="op">:</span><span class="st">&quot;This is title 1&quot;</span><span class="op">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        desc<span class="op">:</span><span class="st">&quot;This is the description&quot;</span><span class="op">,</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        active<span class="op">:</span><span class="kw">true</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        sno<span class="op">:</span><span class="dv">2</span><span class="op">,</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        title<span class="op">:</span><span class="st">&quot;This is title 2&quot;</span><span class="op">,</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        desc<span class="op">:</span><span class="st">&quot;This is the description&quot;</span><span class="op">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        active<span class="op">:</span><span class="kw">true</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        sno<span class="op">:</span><span class="dv">3</span><span class="op">,</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        title<span class="op">:</span><span class="st">&quot;This is title 3&quot;</span><span class="op">,</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        desc<span class="op">:</span><span class="st">&quot;This is the description&quot;</span><span class="op">,</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        active<span class="op">:</span><span class="kw">true</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ngOnInit</span>()<span class="op">:</span> <span class="dt">void</span> { }</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="todo-item-component">todo-item Component</h3>
+<p><strong><em>todo-item.component.html</em></strong></p>
+<p>Control will come here when user trying to <strong>add/ delete/ view
+todos</strong></p>
+<p>To receive todo from todos.component, We have to add <strong>Input
+Decorator</strong> in todo-item.component.ts</p>
+<p>Also created a <strong>click</strong> event, which will call
+<strong>onClick()</strong> method everytime it gets called. And passing
+the todo to display it in console and to delete it.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h5&gt;</span>{{todo.title}}<span class="kw">&lt;/h5&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p&gt;</span>{{todo.desc}}<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Creating a (click) event with name onClick()--&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;btn btn-danger&quot;</span> <span class="er">(click)</span><span class="ot">=</span><span class="st">&quot;onClick(todo)&quot;</span><span class="kw">&gt;</span>Delete<span class="kw">&lt;/button&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p><strong><em>todo-item.component.ts</em></strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodoItemComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">//Adding Input Decorator to receive todo from todos.component  </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Input</span>() todo<span class="op">:</span> Todo<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() { }</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ngOnInit</span>()<span class="op">:</span> <span class="dt">void</span> { }</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Handling (click) event by onClick() method</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">onClick</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;onClick triggered&quot;</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(todo)<span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="images/homepage1.png" alt="homepage1" style="zoom:50%;" /></p>
+<h2 id="functionality">Functionality</h2>
+<h3 id="delete-a-todo">Delete a todo</h3>
+<p>If we click on delete on a particular todo, we have to emit a event
+from <strong><em>todo-item.component.ts</em></strong> and
+<strong><em>todos.component.ts</em></strong> will receive the event and
+delete the todo from the predefined <strong>todos</strong> Array.</p>
+<p>Emmiting a Event from
+<strong><em>todo-item.component.ts</em></strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodoItemComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Input</span>() todo<span class="op">:</span> Todo<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">//Emitting a event todoDelete, which will received by todos.component.ts and delete the todo from todos Array</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Output</span>() todoDelete<span class="op">:</span><span class="bu">EventEmitter</span><span class="op">&lt;</span>Todo<span class="op">&gt;</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">EventEmitter</span>()<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() { }</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ngOnInit</span>()<span class="op">:</span> <span class="dt">void</span> { }</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">onClick</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Emmitting the event</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todoDelete</span><span class="op">.</span><span class="fu">emit</span>(todo)<span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;onClick triggered&quot;</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Listen <strong>todoDelete</strong> event from
+<strong><em>todos.component.html</em></strong></p>
+<p>We have to Listen the event <strong>todoDelete</strong> and run
+<strong>deleteTodo</strong> function, passing the
+<strong>event(todo)</strong> within it.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;app-todo-item</span> <span class="er">[todo]</span><span class="ot">=</span><span class="st">&quot;todo&quot;</span> <span class="er">(todoDelete)</span><span class="ot">=</span><span class="st">&quot;deleteTodo($event)&quot;</span><span class="kw">&gt;&lt;/app-todo-item&gt;</span></span></code></pre></div>
+<p>Write <strong>deleteTodo</strong> function in
+<strong><em>todos.component.ts</em></strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodosComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> <span class="op">...</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a> <span class="op">...</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">deleteTodo</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(todo)<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">//This will take the index and delete it from array by splice method</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> index <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">.</span><span class="fu">indexOf</span>(todo)<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">.</span><span class="fu">splice</span>(index<span class="op">,</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Screenshots</strong></p>
+<ul>
+<li>Initial Stage before deletion</li>
+</ul>
+<p><img src="images/Delete-Initial.png" alt="Delete-Initial" style="zoom:50%;" /></p>
+<ul>
+<li>After delete 2nd todo</li>
+</ul>
+<p><img src="images/After-delete-2nd.png" alt="After-delete 2" style="zoom:50%;" /></p>
+<h3 id="add-a-todo">Add a todo</h3>
+<h3 id="add-todo-component">add-todo Component</h3>
+<p><strong><em>add-todo.component.html</em></strong></p>
+<p>Handling <strong>ngSubmit</strong> Event with
+<strong>onSubmit()</strong> method which will add a new
+<strong>todo</strong> to <strong>todos</strong> list.</p>
+<p>Taking input title and Description and bind them in variable using
+<strong>(ngModel)</strong> directive.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;container my-3&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   <span class="kw">&lt;h4&gt;</span>Add New Todo<span class="kw">&lt;/h4&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;form</span> <span class="er">(ngSubmit)</span><span class="ot">=</span><span class="st">&quot;onSubmit()&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-group&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;label</span> <span class="er">for</span><span class="ot">=</span><span class="st">&quot;title&quot;</span><span class="kw">&gt;</span>Todo Title<span class="kw">&lt;/label&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="co">&lt;!-- Bind ngModel directive to store input title --&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;text&quot;</span> <span class="er">[(ngModel)]</span><span class="ot">=</span><span class="st">&quot;title&quot;</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-control&quot;</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;title&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-group&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;label</span> <span class="er">for</span><span class="ot">=</span><span class="st">&quot;desc&quot;</span><span class="kw">&gt;</span>Todo Description<span class="kw">&lt;/label&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>            <span class="co">&lt;!-- Bind ngModel directive to store input Description --&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;text&quot;</span> <span class="er">[(ngModel)]</span><span class="ot">=</span><span class="st">&quot;desc&quot;</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-control&quot;</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;desc&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;button</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;submit&quot;</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;btn btn-success&quot;</span><span class="kw">&gt;</span>Add Todo<span class="kw">&lt;/button&gt;</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/form&gt;</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p><strong><em>app.module.ts</em></strong></p>
+<p>Add <strong>FormsModule</strong> in <strong>imports</strong> to work
+with <strong>(ngModel)</strong> directive</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>imports<span class="op">:</span> [</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    BrowserModule<span class="op">,</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    AppRoutingModule<span class="op">,</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    FormsModule</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  ]</span></code></pre></div>
+<p><strong><em>add-todo.component.ts</em></strong></p>
+<p>Created a method onSubmit() which will <strong>create todo</strong>
+with given inputs and <strong>emitting event</strong> to add it into
+todos array</p>
+<p>Emitting a event <strong>todoAdd</strong>, which will received by
+<strong>todos.component.ts</strong> and added the <strong>todo</strong>
+into <strong>todos</strong> Array</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AddTodoComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  title<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  desc<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Output</span>() todoAdd<span class="op">:</span><span class="bu">EventEmitter</span><span class="op">&lt;</span>Todo<span class="op">&gt;</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">EventEmitter</span>()<span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() { }</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ngOnInit</span>()<span class="op">:</span> <span class="dt">void</span> {  }</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">onSubmit</span>() {</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> todo <span class="op">=</span> {</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>      sno<span class="op">:</span> <span class="dv">8</span><span class="op">,</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>      title<span class="op">:</span> <span class="kw">this</span><span class="op">.</span><span class="at">title</span><span class="op">,</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>      desc<span class="op">:</span> <span class="kw">this</span><span class="op">.</span><span class="at">desc</span><span class="op">,</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      active<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Emmitting the event and passing todo</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todoAdd</span><span class="op">.</span><span class="fu">emit</span>(todo)<span class="op">;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Listen <strong>todoAdd</strong> event from
+<strong><em>todos.component.html</em></strong></p>
+<p>We have to Listen the event <strong>todoAdd</strong> and run
+<strong>addTodo</strong> function, passing the
+<strong>event(todo)</strong> within it.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;app-add-todo</span> <span class="er">(todoAdd)</span><span class="ot">=</span><span class="st">&quot;addTodo($event)&quot;</span><span class="kw">&gt;&lt;/app-add-todo&gt;</span></span></code></pre></div>
+<p>Write <strong>addTodo</strong> function in
+<strong><em>todos.component.ts</em></strong></p>
+<p>This will push the todo into the todo array.</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addTodo</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(todo)<span class="op">;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">.</span><span class="fu">push</span>(todo)<span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>Before Add</p>
+<p><img src="images/Before-Add.png" alt="Before Add" style="zoom:50%;" /></p>
+<p>After Add</p>
+<p><img src="images/After-Add.png" alt="After Add" style="zoom:50%;" /></p>
+<h3 id="empty-todo-text">Empty todo text</h3>
+<p>If there is <strong>no todo present</strong> in the array, we can
+display <strong>No Todos to Display</strong> by <strong>ngIf</strong>
+block.</p>
+<p><strong><em>todos.component.html</em></strong></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;app-add-todo</span> <span class="er">(todoAdd)</span><span class="ot">=</span><span class="st">&quot;addTodo($event)&quot;</span><span class="kw">&gt;&lt;/app-add-todo&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h4&gt;</span>Your Todos<span class="kw">&lt;/h4&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;this.todos.length===0; else elseBlock&quot;</span><span class="kw">&gt;</span>No Todos to Display<span class="kw">&lt;/div&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ng-template</span> <span class="er">#elseBlock</span><span class="kw">&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">*ngFor</span><span class="ot">=</span><span class="st">&quot;let todo of todos&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;app-todo-item</span> <span class="er">[todo]</span><span class="ot">=</span><span class="st">&quot;todo&quot;</span> <span class="er">(todoDelete)</span><span class="ot">=</span><span class="st">&quot;deleteTodo($event)&quot;</span><span class="kw">&gt;&lt;/app-todo-item&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ng-template&gt;</span></span></code></pre></div>
+<p><img src="images/empty-todo.png" alt="empty-todo" style="zoom:50%;" /></p>
+<h3 id="saving-in-localstorage">Saving in Localstorage</h3>
+<p>First empty the hardcoded todos array in
+<strong><em>todos.component.html</em></strong></p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodosComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() {</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">//todos Array where todo will store and display</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todos</span> <span class="op">=</span> [  ]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span></code></pre></div>
+<p><strong><em>todos.component.ts</em></strong></p>
+<p>Fetching <strong>todos array</strong> from
+<strong>localStorage</strong>.</p>
+<p>If localstorage is empty, empty todos array will initialise.</p>
+<p>If localstorage have existing todos array, then we will parse that,
+save that in todos array and display.</p>
+<p>Also we are <strong>saving the updated todos</strong> array in
+localStorage after any <strong>Add</strong> or <strong>Delete</strong>
+operation.</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodosComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  todos<span class="op">:</span> Todo[]<span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  localItem<span class="op">:</span><span class="dt">string</span><span class="op">;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() {</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// </span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">localItem</span> <span class="op">=</span> localStorage<span class="op">.</span><span class="fu">getItem</span>(<span class="st">&quot;todos&quot;</span>)<span class="op">;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="kw">this</span><span class="op">.</span><span class="at">localItem</span><span class="op">==</span><span class="kw">null</span>){</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">todos</span> <span class="op">=</span> [  ]</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>{</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">=</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(<span class="kw">this</span><span class="op">.</span><span class="at">localItem</span>)<span class="op">;</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ngOnInit</span>()<span class="op">:</span> <span class="dt">void</span> { }</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">deleteTodo</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(todo)<span class="op">;</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> index <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">.</span><span class="fu">indexOf</span>(todo)<span class="op">;</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">.</span><span class="fu">splice</span>(index<span class="op">,</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Saving the updated todos array in localStorage</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    localStorage<span class="op">.</span><span class="fu">setItem</span>(<span class="st">&quot;todos&quot;</span><span class="op">,</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(<span class="kw">this</span><span class="op">.</span><span class="at">todos</span>))<span class="op">;</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTodo</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(todo)<span class="op">;</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">.</span><span class="fu">push</span>(todo)<span class="op">;</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Saving the updated todos array in localStorage</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    localStorage<span class="op">.</span><span class="fu">setItem</span>(<span class="st">&quot;todos&quot;</span><span class="op">,</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(<span class="kw">this</span><span class="op">.</span><span class="at">todos</span>))<span class="op">;</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><em>Thus even after reloading the page, our todo list is still saved
+at its last state..</em></p>
+<h3 id="mark-as-done">Mark as Done</h3>
+<p>Add a <strong>checkbox</strong> in
+<strong><em>todo-item.component.html</em></strong></p>
+<p>Creating a ngClass custom attribute, which will set the element class
+to strike it it not active.</p>
+<p>Also invoking method <strong>onCheckboxClick</strong> on checkbox
+click. Also taking index of for loop and making unique id for each
+checkbox.</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--To receive todo from todos.component, We have to add Input Decorator in todo-item.component.ts--&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;my-3&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h5</span> <span class="er">[ngClass]</span><span class="ot">=</span><span class="st">&quot;{&#39;strike&#39;: !todo.active}&quot;</span><span class="kw">&gt;</span>{{todo.title}}<span class="kw">&lt;/h5&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;mb-1&quot;</span> <span class="er">[ngClass]</span><span class="ot">=</span><span class="st">&quot;{&#39;strike&#39;: !todo.active}&quot;</span><span class="kw">&gt;</span>{{todo.desc}}<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-group form-check&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>         <span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;checkbox&quot;</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-check-input&quot;</span> <span class="er">(click)</span><span class="ot">=</span><span class="st">&quot;onCheckboxClick(todo)&quot;</span> <span class="er">[checked]</span><span class="ot">=</span><span class="st">&quot;!todo.active&quot;</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;done{{i}}&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;label</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;form-check-label&quot;</span> <span class="er">for</span><span class="ot">=</span><span class="st">&quot;done{{i}}&quot;</span><span class="kw">&gt;</span>Mark as Done<span class="kw">&lt;/label&gt;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Creating a (click) event with name onClick()--&gt;</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;btn btn-sm btn-danger mb-4&quot;</span> <span class="er">(click)</span><span class="ot">=</span><span class="st">&quot;onClick(todo)&quot;</span><span class="kw">&gt;</span>Delete<span class="kw">&lt;/button&gt;</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p><strong><em>todo-item.component.css</em></strong></p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.strike</span>{</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-decoration</span>: <span class="dv">line-through</span><span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong><em>todo-item.component.ts</em></strong></p>
+<p>Creating a new Event Emitter and emit <strong>todoCheckbox</strong>
+to change active status in <strong><em>todos.component.ts</em></strong>.
+Also taking index of the for loop (which was iterating from
+<strong><em>todos.component.html</em></strong> )</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodoItemComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Input</span>() i<span class="op">:</span><span class="dt">number</span><span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Output</span>() todoCheckbox<span class="op">:</span><span class="bu">EventEmitter</span><span class="op">&lt;</span>Todo<span class="op">&gt;</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">EventEmitter</span>()<span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">onCheckboxClick</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todoCheckbox</span><span class="op">.</span><span class="fu">emit</span>(todo)<span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Listening <strong>todoCheckbox</strong> in
+<strong><em>todos.component.html</em></strong> and invoke function
+<strong>toggleTodo()</strong></p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;app-add-todo</span> <span class="er">(todoAdd)</span><span class="ot">=</span><span class="st">&quot;addTodo($event)&quot;</span><span class="kw">&gt;&lt;/app-add-todo&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h4&gt;</span>Your Todos<span class="kw">&lt;/h4&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;this.todos.length===0; else elseBlock&quot;</span><span class="kw">&gt;</span>No Todos to Display<span class="kw">&lt;/div&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ng-template</span> <span class="er">#elseBlock</span><span class="kw">&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Looping over list of todos by ngFor directive --&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">*ngFor</span><span class="ot">=</span><span class="st">&quot;let todo of todos; index as i&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- Creating a Custom Attribute [todo] and passing &quot;todo&quot; in app-todo-item --&gt;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- Listen the event todoDelete and run deleteTodo function ,passing the event(todo) within it --&gt;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;app-todo-item</span> <span class="er">[todo]</span><span class="ot">=</span><span class="st">&quot;todo&quot;</span> <span class="er">[i]</span><span class="ot">=</span><span class="st">&quot;i&quot;</span> <span class="er">(todoDelete)</span><span class="ot">=</span><span class="st">&quot;deleteTodo($event)&quot;</span> <span class="er">(todoCheckbox)</span><span class="ot">=</span><span class="st">&quot;toggleTodo($event)&quot;</span><span class="kw">&gt;&lt;/app-todo-item&gt;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ng-template&gt;</span></span></code></pre></div>
+<p>Write <strong>toggleTodo()</strong> method to change the active
+status in <strong><em>todos.component.ts</em></strong></p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> TodosComponent <span class="kw">implements</span> OnInit {</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">toggleTodo</span>(todo<span class="op">:</span> Todo){</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> index <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">todos</span><span class="op">.</span><span class="fu">indexOf</span>(todo)<span class="op">;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">todos</span>[index]<span class="op">.</span><span class="at">active</span> <span class="op">=</span> <span class="op">!</span><span class="kw">this</span><span class="op">.</span><span class="at">todos</span>[index]<span class="op">.</span><span class="at">active</span><span class="op">;</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    localStorage<span class="op">.</span><span class="fu">setItem</span>(<span class="st">&quot;todos&quot;</span><span class="op">,</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(<span class="kw">this</span><span class="op">.</span><span class="at">todos</span>))<span class="op">;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>After toggle checkbox completed :</p>
+<p><img src="images/Mark-as-done.png" alt="Mark-as-done" style="zoom:50%;" /></p>
+<h2 id="routing-module">Routing Module</h2>
+<p>The main cool feature of Angular is to navigate through pages without
+refresh the page.</p>
+<p>Creating a new <strong>‘About’ Component</strong> for navigation. And
+putting a simple jumbrotron in
+<strong><em>about.component.html</em></strong> file.</p>
+<p><strong><em>app-routing.module.ts</em></strong></p>
+<p>Setting the path for the two components which will be navigated in
+the navbar</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;&#39;</span><span class="op">,</span> component<span class="op">:</span> TodosComponent }<span class="op">,</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;about&#39;</span><span class="op">,</span> component<span class="op">:</span> AboutComponent }<span class="op">,</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p><strong><em>app-routing.module.html</em></strong></p>
+<p>just keep <strong>router-outlet</strong> and <strong>nav</strong>
+tags in html . Dont need any <code>&lt;app-todos&gt;</code> tag.</p>
+<p>We have to use <strong>routerLink</strong> in place of
+<strong>href</strong>.</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;nav-link&quot;</span> <span class="er">routerLink</span><span class="ot">=</span><span class="st">&quot;/&quot;</span><span class="kw">&gt;</span>Home <span class="kw">&lt;span</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;sr-only&quot;</span><span class="kw">&gt;</span>(current)<span class="kw">&lt;/span&gt;&lt;/a&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;nav-link&quot;</span> <span class="er">routerLink</span><span class="ot">=</span><span class="st">&quot;/about&quot;</span><span class="kw">&gt;</span>About Page<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span></span></code></pre></div>
+<p><img src="images/Final-home-page.png" alt="Final-home-page" style="zoom:50%;" /></p>
+<p><img src="images/Final-about.png" alt="Final-about" style="zoom:50%;" /></p>
+<h2 id="build-for-prod">Build for PROD</h2>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>ng build <span class="op">--</span>prod </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To host it on github, we have to change base-href in index.html afterwards.</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Or we can use below command</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>ng build <span class="op">--</span>prod <span class="op">--</span>base<span class="op">-</span>href <span class="op">/</span>todo<span class="op">/</span></span></code></pre></div>
+<p><strong><em>index.html</em></strong></p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;base</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;/todo/&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>(to host in github)</span></code></pre></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        //document.getElementById('sidebar').getElementsByTagName('ul')[0].className += "nav nav-sidebar";
+        
+        /* ajust the height when click the toc
+           the code is from https://github.com/twbs/bootstrap/issues/1768
+        */
+        var shiftWindow = function() { scrollBy(0, -50) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
+        
+        /*add Bootstrap styles to tables*/
+        var tables = document.getElementsByTagName("table");
+        for(var i = 0; i < tables.length; ++i){
+            tables[i].className += "table table-bordered table-hover";
+        }
+    </script>
+  </body>
+</html>

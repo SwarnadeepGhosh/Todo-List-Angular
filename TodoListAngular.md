@@ -2,7 +2,7 @@
 
 ### [Live Link](https://swarnadeepghosh.github.io/todo/)
 
-### Table of Contents
+## Table of Contents
 - [Environment Setup](#environment-setup )
 - [Components](#components)
   - [app Component](#app-component)
@@ -17,13 +17,13 @@
   - [Routing Module](#routing-module)
 - [Build for PROD](#build-for-prod)
 
-#### Prerequisite Installation
+**Prerequisite Installation**
 
 - Node
 - Angular CLI
 - VS Code
 
-### Environment Setup 
+## Environment Setup 
 ```powershell
 >ng new TodoList
 >cd Todolist
@@ -49,9 +49,9 @@ Configure `angular.json`
 
 Welcome Page
 
-![Welcome-Page](images/Welcome-Page.png)
+<img src="images/Welcome-Page.png" alt="Welcome-Page" style="zoom:67%;" />
 
-### Components
+## Components
 
 Used 3 components :
 
@@ -65,7 +65,7 @@ Used 3 components :
 
 
 
-#### app Component
+### app Component
 
 ***app.component.html***
 
@@ -107,7 +107,7 @@ export class Todo{
 
 
 
-#### todo Component
+### todo Component
 
 ***todos.component.html***
 
@@ -156,7 +156,7 @@ export class TodosComponent implements OnInit {
 
 
 
-#### todo-item Component
+### todo-item Component
 
 ***todo-item.component.html***
 
@@ -197,11 +197,11 @@ export class TodoItemComponent implements OnInit {
 
 
 
-![homepage1](images/homepage1.png)
+<img src="images/homepage1.png" alt="homepage1" style="zoom:50%;" />
 
-### Functionality
+## Functionality
 
-#### Delete a todo
+### Delete a todo
 
 If we click on delete on a particular todo, we have to emit a event from ***todo-item.component.ts*** and ***todos.component.ts*** will receive the event and delete the todo from the predefined **todos** Array.
 
@@ -258,15 +258,15 @@ export class TodosComponent implements OnInit {
 
 - Initial Stage before deletion
 
-![Delete-Initial](images/Delete-Initial.png)
+<img src="images/Delete-Initial.png" alt="Delete-Initial" style="zoom:50%;" />
 
 - After delete 2nd todo
 
-![After-delete 2](images/After-delete-2nd.png)
+<img src="images/After-delete-2nd.png" alt="After-delete 2" style="zoom:50%;" />
 
-#### Add a todo
+### Add a todo
 
-##### add-todo Component
+### add-todo Component
 
 ***add-todo.component.html***
 
@@ -364,17 +364,17 @@ addTodo(todo: Todo){
 
 Before Add
 
-![Before Add](images/Before-Add.png)
+<img src="images/Before-Add.png" alt="Before Add" style="zoom:50%;" />
 
 
 
 After Add
 
-![After Add](images/After-Add.png)
+<img src="images/After-Add.png" alt="After Add" style="zoom:50%;" />
 
 
 
-#### Empty todo text
+### Empty todo text
 
 If there is **no todo present** in the array, we can display **No Todos to Display** by **ngIf** block.
 
@@ -391,11 +391,11 @@ If there is **no todo present** in the array, we can display **No Todos to Displ
 </ng-template>
 ```
 
-![empty-todo](images/empty-todo.png)
+<img src="images/empty-todo.png" alt="empty-todo" style="zoom:50%;" />
 
 
 
-#### Saving in Localstorage
+### Saving in Localstorage
 
 First empty the hardcoded todos array in ***todos.component.html***
 
@@ -458,7 +458,7 @@ export class TodosComponent implements OnInit {
 
 
 
-#### Mark as Done
+### Mark as Done
 
 Add a **checkbox** in ***todo-item.component.html***
 
@@ -540,11 +540,11 @@ export class TodosComponent implements OnInit {
 
 After toggle checkbox completed :
 
-![Mark-as-done](images/Mark-as-done.png)
+<img src="images/Mark-as-done.png" alt="Mark-as-done" style="zoom:50%;" />
 
 
 
-### Routing Module
+## Routing Module
 
 The main cool feature of Angular is to navigate through pages without refresh the page.
 
@@ -581,15 +581,15 @@ We have to use **routerLink** in place of **href**.
 
 
 
-![Final-home-page](images/Final-home-page.png)
+<img src="images/Final-home-page.png" alt="Final-home-page" style="zoom:50%;" />
 
 
 
-![Final-about](images/Final-about.png)
+<img src="images/Final-about.png" alt="Final-about" style="zoom:50%;" />
 
 
 
-### Build for PROD
+## Build for PROD
 
 ```powershell
 >ng build --prod 
